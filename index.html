@@ -3761,6 +3761,28 @@ nav{
   else placeHowMadeAfterStory();
 })();
 </script>
+
+<style id="final-user-fixes">
+/* ===== FINAL USER FIXES ===== */
+@media(max-width:700px){
+  /* Five category circles: larger, but all five fit on one phone row */
+  .lb-mobile-cats{width:100%;box-sizing:border-box;overflow:hidden!important;gap:6px!important;padding:8px 8px 12px!important;justify-content:space-between!important;}
+  .lb-mobile-cat{flex:0 0 calc((100% - 24px)/5)!important;width:calc((100% - 24px)/5)!important;max-width:calc((100% - 24px)/5)!important;min-width:0!important;font-size:9px!important;}
+  .lb-cat-circle{width:64px!important;height:64px!important;min-width:64px!important;max-width:64px!important;min-height:64px!important;max-height:64px!important;margin-left:auto!important;margin-right:auto!important;}
+  .lb-mobile-cat img{width:100%!important;height:100%!important;}
+}
+/* Menu belongs beside the Loop♡Bloom title */
+nav{position:relative!important;}
+.lb-menu-trigger{position:absolute!important;left:12px!important;top:50%!important;transform:translateY(-50%)!important;width:38px!important;height:38px!important;border-radius:11px!important;font-size:19px!important;}
+nav .logo{margin-left:58px!important;}
+@media(max-width:800px){nav .logo{margin-left:52px!important;}}
+/* Connect / social links stay closed until clicked */
+.social-board{display:none!important;}
+.social.social-open .social-board{display:grid!important;}
+.social-toggle{display:inline-flex;align-items:center;gap:8px;border:1px solid #cbdccc;background:#fff;border-radius:999px;padding:9px 16px;margin:10px 0 18px;color:#536a57;font:inherit;font-weight:700;cursor:pointer;}
+.social-toggle::after{content:'＋';font-size:16px;}
+.social.social-open .social-toggle::after{content:'−';}
+</style>
 </head>
 <body>
 
@@ -7435,5 +7457,22 @@ nav{align-items:center!important;}
 @media(max-width:800px){#how-made{display:none!important;}}
 </style>
 
+
+<script>
+/* Keep the five mobile circles inside the phone width even on very narrow screens. */
+(function(){
+  function fitCategoryCircles(){
+    if(window.innerWidth>700)return;
+    const box=document.querySelector('.lb-mobile-cats');
+    const circles=[...document.querySelectorAll('.lb-mobile-cat .lb-cat-circle')];
+    if(!box||!circles.length)return;
+    const available=box.clientWidth-16;
+    const size=Math.max(54,Math.min(64,Math.floor((available-24)/5)));
+    circles.forEach(c=>{c.style.width=size+'px';c.style.height=size+'px';c.style.minWidth=size+'px';c.style.maxWidth=size+'px';c.style.minHeight=size+'px';c.style.maxHeight=size+'px';});
+  }
+  window.addEventListener('resize',fitCategoryCircles);
+  document.addEventListener('DOMContentLoaded',fitCategoryCircles);
+})();
+</script>
 </body>
 </html>
