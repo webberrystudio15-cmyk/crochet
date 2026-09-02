@@ -3706,15 +3706,25 @@ nav{
 </style>
 
 
-<style id="myntra-mini-round-categories">
-@media(max-width:800px){
-  /* Tiny, unmistakable round category bubbles — directly below mobile actions */
-  .lb-mobile-cats{display:flex!important;align-items:flex-start!important;gap:10px!important;padding:9px 12px 12px!important;margin:0!important;background:#fff!important;overflow-x:auto!important;overflow-y:hidden!important;border:0!important;box-shadow:none!important;}
-  .lb-mobile-cat{flex:0 0 58px!important;width:58px!important;display:flex!important;flex-direction:column!important;align-items:center!important;gap:4px!important;text-decoration:none!important;font-size:9px!important;line-height:1.1!important;font-weight:700!important;color:#536a57!important;}
-  .lb-mobile-cat .lb-cat-circle{display:block!important;width:52px!important;height:52px!important;min-width:52px!important;min-height:52px!important;max-width:52px!important;max-height:52px!important;aspect-ratio:1/1!important;box-sizing:border-box!important;border-radius:50%!important;padding:2px!important;margin:0!important;background:#f7fbf7!important;border:1px solid #c8d9ca!important;overflow:hidden!important;box-shadow:0 2px 7px rgba(69,107,80,.10)!important;transform:none!important;}
-  .lb-mobile-cat img{display:block!important;width:100%!important;height:100%!important;min-width:0!important;min-height:0!important;max-width:none!important;max-height:none!important;aspect-ratio:1/1!important;object-fit:cover!important;border-radius:50%!important;}
-  .lb-mobile-cat .lb-cat-circle::after{display:none!important;}
-}
+<style id="lb-final-mobile-header-menu">
+.lb-menu-trigger{position:fixed;left:16px;top:72px;z-index:90;width:44px;height:44px;border:1px solid #c9dacb;border-radius:14px;background:#fff;color:#456b50;font-size:21px;box-shadow:0 8px 20px rgba(69,107,80,.10);cursor:pointer}
+.lb-side-menu{position:fixed;left:0;top:0;bottom:0;width:min(330px,86vw);z-index:300;background:#fff;padding:76px 24px 24px;transform:translateX(-105%);transition:transform .35s ease;box-shadow:14px 0 35px rgba(48,77,55,.15);overflow:auto}
+.lb-side-menu.open{transform:translateX(0)}
+.lb-menu-backdrop{position:fixed;inset:0;background:rgba(39,62,44,.18);z-index:299;opacity:0;pointer-events:none;transition:opacity .3s ease}.lb-menu-backdrop.open{opacity:1;pointer-events:auto}
+.lb-menu-close{position:absolute;right:18px;top:18px;border:0;background:#f4f8f4;border-radius:50%;width:34px;height:34px;font-size:24px;color:#456b50}.lb-menu-logo{font-size:30px;font-weight:800;color:#456b50}.lb-menu-logo span{color:#789b7f}.lb-menu-note{font-size:11px;color:#789b7f;margin:5px 0 24px}.lb-side-menu>a,.lb-menu-back{display:block;width:100%;padding:13px 4px;border:0;border-bottom:1px solid #e2ebe3;background:none;text-align:left;color:#456b50;text-decoration:none;font-weight:700;font-size:14px}.lb-menu-back{margin-top:14px;border:1px solid #c9dacb;border-radius:12px;padding:12px;background:#f8fbf8}
+.lb-back-btn{display:inline-flex;align-items:center;margin:18px 4%;padding:9px 13px;border:1px solid #c9dacb;border-radius:12px;background:#fff;color:#456b50;font-weight:700;cursor:pointer}
+.lb-mobile-cats{margin:0!important}
+.lb-mobile-search{height:42px;flex:1;min-width:0;border:1px solid #d4e2d5;border-radius:13px;background:#f8fbf8;color:#789b7f;display:flex;align-items:center;gap:7px;padding:0 11px;font-size:11px;cursor:text}.lb-mobile-search span:first-child{font-size:20px;color:#456b50}.lb-mobile-toolbar button{width:52px!important;height:42px!important;border-radius:13px!important;font-size:18px!important;display:flex!important;align-items:center;justify-content:center;gap:2px;flex-direction:column}.lb-mobile-toolbar button small{font-size:7px;line-height:1;color:#789b7f}.lb-mobile-toolbar .lb-bag-btn{font-size:10px!important}.bag-icon{width:17px;height:14px;border:2px solid #456b50;border-radius:3px;display:block;position:relative}.bag-icon:before{content:"";position:absolute;left:3px;top:-8px;width:7px;height:8px;border:2px solid #456b50;border-bottom:0;border-radius:7px 7px 0 0}.lb-mobile-toolbar .lb-bag-btn>span:nth-child(2){position:absolute;right:1px;top:0;background:#456b50;color:#fff;border-radius:99px;font-size:8px;min-width:14px;height:14px;line-height:14px}
+@media(max-width:800px){.lb-menu-trigger{top:48px;left:10px;width:38px;height:38px;border-radius:12px;font-size:18px}.lb-mobile-toolbar{margin:0 10px 5px!important;padding:6px!important;gap:5px!important;border-radius:15px!important;align-items:center}.lb-mobile-toolbar button{width:48px!important}.lb-mobile-cats{padding-top:8px!important}.lb-back-btn{font-size:10px;margin:10px 4% 4px;padding:7px 10px}.section-title h2{font-size:28px!important}.lb-side-menu{width:78vw}}
+</style>
+
+<style id="lb-gifts-compact">
+#gifts{padding-top:30px!important;padding-bottom:30px!important}
+#gifts .gift-final,#gifts .center{display:none}
+#gifts.gifts-open .gift-final,#gifts.gifts-open .center{display:grid}
+#gifts.gifts-open .center{display:block}
+#gifts .section-title{cursor:pointer}.gifts-hint{display:block;margin-top:5px;font-size:10px;color:#789b7f;letter-spacing:.08em}
+@media(max-width:800px){#gifts .section-title h2{font-size:27px!important}#gifts .section-title{margin-bottom:4px!important}.gifts-hint{font-size:9px!important}.lb-menu-trigger{display:block}}
 </style>
 </head>
 <body>
@@ -3820,18 +3830,22 @@ Loop<span>♡</span>Bloom
 <button class="icon unified-icon" onclick="openDrawer('cart')" title="Bag">⌑<span class="count" id="cartCount">0</span></button>
 </div>
 </nav>
+<button class="lb-menu-trigger" onclick="toggleSiteMenu()" aria-label="Open menu">☰</button>
 <div class="lb-mobile-toolbar" aria-label="Quick actions">
-  <button onclick="focusShopSearch()" aria-label="Search">⌕</button>
-  <button onclick="showReviewsPanel()" aria-label="Notifications">♧</button>
-  <button onclick="openDrawer('wishlist')" aria-label="Wishlist">♡<span id="mobileWishCount">0</span></button>
-  <button onclick="openLogin()" aria-label="Account">♙</button>
+  <div class="lb-mobile-search" role="button" tabindex="0" onclick="focusShopSearch()" onkeydown="if(event.key==='Enter')focusShopSearch()">
+    <span>⌕</span><span>Search crochet...</span>
+  </div>
+  <button onclick="showReviewsPanel()" aria-label="Reviews">♡<small>Reviews</small></button>
+  <button onclick="openDrawer('wishlist')" aria-label="Wishlist">♡<span id="mobileWishCount">0</span><small>Wishlist</small></button>
+  <button class="lb-bag-btn" onclick="openDrawer('cart')" aria-label="Bag"><span class="bag-icon" aria-hidden="true"></span><span id="mobileCartCount">0</span><small>Bag</small></button>
+</div>
 <!-- MOBILE QUICK CATEGORY CIRCLES -->
 <div class="lb-mobile-cats" aria-label="Quick categories">
-  <a class="lb-mobile-cat" href="#shop/bags"><span class="lb-cat-circle"><img src="image/bag4.jpg" alt="Bags"></span>Bags</a>
-  <a class="lb-mobile-cat" href="#shop/softtoys"><span class="lb-cat-circle"><img src="image/flower3.jpg" alt="Soft Toys"></span>Soft Toys</a>
-  <a class="lb-mobile-cat" href="#shop/tops"><span class="lb-cat-circle"><img src="image/top3.jpg" alt="Tops"></span>Tops</a>
-  <a class="lb-mobile-cat" href="#shop/toys"><span class="lb-cat-circle"><img src="image/toy2.jpg" alt="Toys"></span>Toys</a>
-  <a class="lb-mobile-cat" href="#shop/keychains"><span class="lb-cat-circle"><img src="image/key8.jpg" alt="Keychains"></span>Keychains</a>
+  <a class="lb-mobile-cat" href="#shop/bags"><span class="lb-cat-circle"><img src="image/bag2.jpg" alt="Bags"></span>Bags</a>
+  <a class="lb-mobile-cat" href="#shop/softtoys"><span class="lb-cat-circle"><img src="image/flower5.jpg" alt="Soft Toys"></span>Soft Toys</a>
+  <a class="lb-mobile-cat" href="#shop/tops"><span class="lb-cat-circle"><img src="image/top6.jpg" alt="Tops"></span>Tops</a>
+  <a class="lb-mobile-cat" href="#shop/toys"><span class="lb-cat-circle"><img src="image/toy4.jpg" alt="Toys"></span>Toys</a>
+  <a class="lb-mobile-cat" href="#shop/keychains"><span class="lb-cat-circle"><img src="image/key10.jpg" alt="Keychains"></span>Keychains</a>
 </div>
 </div>
 <!-- =========================================================
@@ -4149,7 +4163,7 @@ little crochet friend. So cute!”
   <p class="review-save-note">Your review is saved on this browser, so it stays here when you come back.</p>
 </div>
 </section><section class="extra-final section final-added" id="gifts">
-<div class="section-title"><span class="pill">a little something ♡</span><h2>A little something for someone ♡</h2></div>
+<div class="section-title gifts-toggle" onclick="openGifts()"><span class="pill">a little something ♡</span><h2>A little something for someone ♡</h2><small class="gifts-hint">Tap to open ♡</small></div>
 <div class="gift-final"><div>For your bestie<span>Made for their special day</span></div><div>For birthdays<span>A little handmade surprise</span></div><div>Just because<span>No reason needed for love</span></div><div>Thinking of you<span>Send a tiny hug in yarn</span></div></div>
 <div class="center"><a class="btn" href="#shop">Find a gift →</a></div>
 </section><section class="section" id="about">
@@ -4259,6 +4273,7 @@ Message us
      SHOP PAGE
 ========================================================= -->
 <section class="page" id="shop">
+<button class="lb-back-btn" onclick="goHomeFromShop()">← Back to Loop♡Bloom</button>
 <div class="shop-head">
 <div>
 <span class="pill" id="shopSticker">
@@ -4302,6 +4317,23 @@ Name: A to Z
 </div>
 </div>
 </section>
+<!-- LOOP♡BLOOM SIDE MENU -->
+<div class="lb-menu-backdrop" id="lbMenuBackdrop" onclick="toggleSiteMenu(false)"></div>
+<aside class="lb-side-menu" id="lbSideMenu" aria-label="Site menu">
+  <button class="lb-menu-close" onclick="toggleSiteMenu(false)">×</button>
+  <div class="lb-menu-logo">Loop<span>♡</span>Bloom</div>
+  <p class="lb-menu-note">tiny stitches • big love</p>
+  <a href="#home" onclick="toggleSiteMenu(false)">⌂ Home</a>
+  <a href="#collections" onclick="toggleSiteMenu(false)">♡ Collections</a>
+  <a href="#bestsellers" onclick="toggleSiteMenu(false)">✦ Bestsellers</a>
+  <a href="#shop" onclick="toggleSiteMenu(false)">🧶 Shop</a>
+  <a href="#reviews" onclick="toggleSiteMenu(false)">♡ Reviews</a>
+  <a href="#gifts" onclick="toggleSiteMenu(false);setTimeout(openGifts,80)">🎀 A little something</a>
+  <a href="#custom" onclick="toggleSiteMenu(false)">✿ Custom Crochet</a>
+  <a href="#about" onclick="toggleSiteMenu(false)">⌁ Our Story</a>
+  <button class="lb-menu-back" onclick="goBackSmart()">← Go back</button>
+</aside>
+
 <!-- =========================================================
      OVERLAY
 ========================================================= -->
@@ -7242,6 +7274,18 @@ function scatterCollage(){ const c=document.getElementById('lbCollage'); if(!c)r
 document.addEventListener('click',e=>{ const r=e.target.closest('#reviews .section-title'); if(r){document.getElementById('reviews')?.classList.toggle('is-open');} const piece=e.target.closest('.lb-collage-piece'); if(piece){location.hash='#shop/'+piece.dataset.shop;} });
 function syncMobileCount(){const a=document.getElementById('wishCount'),b=document.getElementById('mobileWishCount');if(a&&b)b.textContent=a.textContent||'0';}
 setInterval(syncMobileCount,500); syncMobileCount();
+</script>
+
+<script id="lb-final-mobile-menu-js">
+function toggleSiteMenu(force){const m=document.getElementById('lbSideMenu'),b=document.getElementById('lbMenuBackdrop');const open=force===undefined?!m.classList.contains('open'):!!force;m.classList.toggle('open',open);b.classList.toggle('open',open)}
+function goHomeFromShop(){location.hash='#home';window.scrollTo({top:0,behavior:'smooth'})}
+function goBackSmart(){if(history.length>1)history.back();else goHomeFromShop()}
+function syncMobileCart(){const a=document.getElementById('cartCount'),b=document.getElementById('mobileCartCount');if(a&&b)b.textContent=a.textContent||'0'}
+setInterval(syncMobileCart,500);syncMobileCart();
+</script>
+
+<script id="lb-gifts-js">
+function openGifts(){const g=document.getElementById('gifts');if(!g)return;g.classList.toggle('gifts-open');if(g.classList.contains('gifts-open'))g.scrollIntoView({behavior:'smooth',block:'start'});}
 </script>
 </body>
 </html>
