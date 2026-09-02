@@ -3783,6 +3783,41 @@ nav .logo{margin-left:58px!important;}
 .social-toggle::after{content:'＋';font-size:16px;}
 .social.social-open .social-toggle::after{content:'−';}
 </style>
+
+<style id="lb-one-last-final-fix">
+/* ===== ONE LAST FINAL FIX ===== */
+nav{position:sticky!important;display:flex!important;align-items:center!important;}
+nav .lb-menu-trigger{position:absolute!important;left:14px!important;top:50%!important;transform:translateY(-50%)!important;margin:0!important;z-index:20!important;width:40px!important;height:40px!important;display:flex!important;align-items:center!important;justify-content:center!important;}
+nav .logo{margin-left:58px!important;}
+@media(max-width:800px){
+ nav{justify-content:flex-start!important;min-height:56px!important;padding:9px 12px!important;}
+ nav .lb-menu-trigger{left:10px!important;width:40px!important;height:40px!important;}
+ nav .logo{margin-left:52px!important;font-size:25px!important;}
+}
+@media(max-width:700px){
+ .lb-mobile-cats{width:100%!important;box-sizing:border-box!important;display:flex!important;flex-wrap:nowrap!important;gap:4px!important;overflow:hidden!important;padding:9px 8px 13px!important;justify-content:space-between!important;}
+ .lb-mobile-cat{flex:1 1 0!important;width:auto!important;min-width:0!important;max-width:none!important;font-size:9px!important;}
+ .lb-mobile-cat .lb-cat-circle{width:70px!important;height:70px!important;min-width:70px!important;max-width:70px!important;min-height:70px!important;max-height:70px!important;margin:0 auto 5px!important;}
+}
+#little-collage .lb-collage-piece{z-index:2;}
+#little-collage .p13{left:12%!important;top:30%!important;width:92px!important;height:92px!important;transform:rotate(14deg)!important;}
+#little-collage .p14{left:66%!important;top:25%!important;width:96px!important;height:96px!important;transform:rotate(-11deg)!important;}
+#little-collage .p15{left:25%!important;top:70%!important;width:88px!important;height:88px!important;transform:rotate(-9deg)!important;}
+#little-collage .p16{left:78%!important;top:68%!important;width:92px!important;height:92px!important;transform:rotate(7deg)!important;}
+#little-collage .p17{left:48%!important;top:48%!important;width:86px!important;height:86px!important;transform:rotate(16deg)!important;}
+@media(max-width:800px){
+ #little-collage .lb-collage{height:410px!important;}
+ #little-collage .lb-collage-piece{width:82px!important;height:82px!important;}
+ #little-collage .p13{left:3%!important;top:31%!important;} #little-collage .p14{left:69%!important;top:31%!important;}
+ #little-collage .p15{left:23%!important;top:70%!important;} #little-collage .p16{left:76%!important;top:70%!important;} #little-collage .p17{left:44%!important;top:50%!important;}
+}
+.social{text-align:center!important;}
+.social-toggle{display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;cursor:pointer!important;}
+.social-board{display:none!important;}
+.social.social-open .social-board{display:grid!important;}
+#about .story-text p{font-size:14px!important;line-height:1.55!important;margin:12px 0!important;}
+@media(max-width:800px){#about .story-text{min-height:auto!important;padding:28px 22px!important;}#about .story-inner,#about .story-card{min-height:auto!important;}#about .story-text p{font-size:12px!important;line-height:1.5!important;}}
+</style>
 </head>
 <body>
 
@@ -4032,16 +4067,21 @@ falling in love with ♡
   <div class="lb-collage" id="lbCollage">
     <button class="lb-collage-piece p1" data-shop="bags"><img src="image/bag1.jpg" alt="Crochet bag"></button>
     <button class="lb-collage-piece p2" data-shop="toys"><img src="image/toy1.jpg" alt="Crochet toy"></button>
-    <button class="lb-collage-piece p3" data-shop="keychains"><img src="image/key1.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p3" data-shop="keychains"><img src="image/key1.jpg" alt="Crochet keychain" onerror="this.onerror=null;this.src='image/key2.webp'"></button>
     <button class="lb-collage-piece p4" data-shop="tops"><img src="image/top1.jpg" alt="Crochet top"></button>
     <button class="lb-collage-piece p5" data-shop="softtoys"><img src="image/flower3.jpg" alt="Soft toy"></button>
     <button class="lb-collage-piece p6" data-shop="bags"><img src="image/bag2.jpg" alt="Crochet bag"></button>
     <button class="lb-collage-piece p7" data-shop="toys"><img src="image/toy2.jpg" alt="Crochet toy"></button>
-    <button class="lb-collage-piece p8" data-shop="keychains"><img src="image/key2.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p8" data-shop="keychains"><img src="image/key2.webp" alt="Crochet keychain"></button>
     <button class="lb-collage-piece p9" data-shop="tops"><img src="image/top2.jpg" alt="Crochet top"></button>
     <button class="lb-collage-piece p10" data-shop="keychains"><img src="image/key3.jpg" alt="Crochet keychain"></button>
     <button class="lb-collage-piece p11" data-shop="keychains"><img src="image/key4.jpg" alt="Crochet keychain"></button>
     <button class="lb-collage-piece p12" data-shop="bags"><img src="image/bag3.jpg" alt="Crochet bag"></button>
+    <button class="lb-collage-piece p13" data-shop="keychains"><img src="image/key5.jpg" alt="Crochet keychain" onerror="this.onerror=null;this.src='image/key6.webp'"></button>
+    <button class="lb-collage-piece p14" data-shop="keychains"><img src="image/key7.webp" alt="Crochet keychain" onerror="this.onerror=null;this.src='image/key8.webp'"></button>
+    <button class="lb-collage-piece p15" data-shop="toys"><img src="image/toy3.jpg" alt="Crochet toy" onerror="this.onerror=null;this.src='image/toy2.jpg'"></button>
+    <button class="lb-collage-piece p16" data-shop="bags"><img src="image/bag4.jpg" alt="Crochet bag" onerror="this.onerror=null;this.src='image/bag2.jpg'"></button>
+    <button class="lb-collage-piece p17" data-shop="keychains"><img src="image/key9.jpg" alt="Crochet keychain" onerror="this.onerror=null;this.src='image/key9.webp'"></button>
   </div>
   <button class="btn lb-scatter-shop" type="button" onclick="scatterCollage()">Scatter &amp; shop ♡</button>
 </section>
@@ -4246,29 +4286,7 @@ Big love.
 
 </h2>
 <p>
-
-What started with a little yarn,
-a crochet hook and lots of
-imagination slowly became our
-tiny handmade world.
-
-</p>
-<p>
-
-Every piece is made carefully
-by hand. There are no rushed
-stitches here — just creativity,
-patience and a whole lot of love.
-
-</p>
-<p>
-
-From everyday bags to tiny
-keychains, playful tops and
-cuddly little friends, we make
-things that feel as special as
-the person receiving them.
-
+A little yarn, a crochet hook and lots of imagination grew into our tiny handmade world — every piece is stitched slowly, carefully and with lots of love. ♡
 </p>
 </div>
 <!-- STORY VIDEO -->
@@ -4294,6 +4312,7 @@ follow the cuteness
 Come hang out with us ♡
 
 </h2>
+<button class="social-toggle" type="button" onclick="this.closest('.social').classList.toggle('social-open')">Connect with us ♡</button>
 <div class="social-board">
 <a class="social-item" href="#">
 <div class="social-symbol">
@@ -7467,7 +7486,7 @@ nav{align-items:center!important;}
     const circles=[...document.querySelectorAll('.lb-mobile-cat .lb-cat-circle')];
     if(!box||!circles.length)return;
     const available=box.clientWidth-16;
-    const size=Math.max(54,Math.min(64,Math.floor((available-24)/5)));
+    const size=Math.max(60,Math.min(70,Math.floor((available-16)/5)));
     circles.forEach(c=>{c.style.width=size+'px';c.style.height=size+'px';c.style.minWidth=size+'px';c.style.maxWidth=size+'px';c.style.minHeight=size+'px';c.style.maxHeight=size+'px';});
   }
   window.addEventListener('resize',fitCategoryCircles);
