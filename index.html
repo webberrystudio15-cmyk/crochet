@@ -3844,6 +3844,7 @@ HANDMADE WITH LOVE&nbsp;&nbsp; • &nbsp;&nbsp;WORLDWIDE SHIPPING&nbsp;&nbsp; �
      NAVIGATION
 ========================================================= -->
 <nav>
+<button class="lb-menu-trigger" onclick="toggleSiteMenu()" aria-label="Open menu">☰</button>
 <a class="logo" href="#home">
 
 Loop<span>♡</span>Bloom
@@ -3865,12 +3866,11 @@ Loop<span>♡</span>Bloom
 <button class="icon unified-icon" onclick="openDrawer('cart')" title="Bag">⌑<span class="count" id="cartCount">0</span></button>
 </div>
 </nav>
-<button class="lb-menu-trigger" onclick="toggleSiteMenu()" aria-label="Open menu">☰</button>
 <div class="lb-mobile-toolbar" aria-label="Quick actions">
   <div class="lb-mobile-search" role="button" tabindex="0" onclick="focusShopSearch()" onkeydown="if(event.key==='Enter')focusShopSearch()">
     <span>⌕</span><span>Search crochet...</span>
   </div>
-  <button onclick="showReviewsPanel()" aria-label="Reviews">♡<small>Reviews</small></button>
+  <button onclick="openReviewForm()" aria-label="Write a review">♡<small>Write review</small></button>
   <button onclick="openDrawer('wishlist')" aria-label="Wishlist">♡<span id="mobileWishCount">0</span><small>Wishlist</small></button>
   <button class="lb-bag-btn" onclick="openDrawer('cart')" aria-label="Bag"><span class="bag-icon" aria-hidden="true"></span><span id="mobileCartCount">0</span><small>Bag</small></button>
 </div>
@@ -4017,6 +4017,9 @@ falling in love with ♡
     <button class="lb-collage-piece p7" data-shop="toys"><img src="image/toy2.jpg" alt="Crochet toy"></button>
     <button class="lb-collage-piece p8" data-shop="keychains"><img src="image/key2.jpg" alt="Crochet keychain"></button>
     <button class="lb-collage-piece p9" data-shop="tops"><img src="image/top2.jpg" alt="Crochet top"></button>
+    <button class="lb-collage-piece p10" data-shop="keychains"><img src="image/key3.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p11" data-shop="keychains"><img src="image/key4.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p12" data-shop="bags"><img src="image/bag3.jpg" alt="Crochet bag"></button>
   </div>
   <button class="btn lb-scatter-shop" type="button" onclick="scatterCollage()">Scatter &amp; shop ♡</button>
 </section>
@@ -4055,6 +4058,7 @@ What our cuties say
 Swipe sideways to see more →
 
 </p>
+<button class="review-open-btn" type="button" onclick="openReviewForm()">Write a review ♡</button>
 </div>
 <div class="review-grid">
 <div class="review">
@@ -4198,7 +4202,7 @@ little crochet friend. So cute!”
   <p class="review-save-note">Your review is saved on this browser, so it stays here when you come back.</p>
 </div>
 </section><section class="extra-final section final-added" id="gifts">
-<div class="section-title gifts-toggle" onclick="openGifts()"><span class="pill">a little something ♡</span><h2>A little something for someone ♡</h2><small class="gifts-hint">Tap to open ♡</small></div>
+<div class="section-title gifts-toggle" onclick="openGifts()"><span class="pill">a little something ♡</span><h2>A little something for someone ♡</h2><small class="gifts-hint">Tap here to see more ♡</small></div>
 <div class="gift-final"><div>For your bestie<span>Made for their special day</span></div><div>For birthdays<span>A little handmade surprise</span></div><div>Just because<span>No reason needed for love</span></div><div>Thinking of you<span>Send a tiny hug in yarn</span></div></div>
 <div class="center"><a class="btn" href="#shop">Find a gift →</a></div>
 </section><section class="section" id="about">
@@ -7304,9 +7308,10 @@ if (container) {
 <span class="lb-cute-dot d1">✦</span><span class="lb-cute-dot d2">♡</span><span class="lb-cute-dot d3">✿</span><span class="lb-cute-dot d4">✧</span>
 <script id="lb-mobile-redesign-js">
 function focusShopSearch(){ location.hash='#shop'; setTimeout(()=>document.getElementById('shopSearch')?.focus(),180); }
-function showReviewsPanel(){ location.hash='#reviews'; setTimeout(()=>document.getElementById('reviews')?.classList.add('is-open'),80); }
+function showReviewsPanel(){ openReviewForm(); }
+function openReviewForm(){ const r=document.getElementById('reviews'); if(!r)return; r.classList.add('review-writing'); r.scrollIntoView({behavior:'smooth',block:'start'}); setTimeout(()=>document.getElementById('reviewName')?.focus(),350); }
 function scatterCollage(){ const c=document.getElementById('lbCollage'); if(!c)return; c.classList.toggle('scatter'); }
-document.addEventListener('click',e=>{ const r=e.target.closest('#reviews .section-title'); if(r){document.getElementById('reviews')?.classList.toggle('is-open');} const piece=e.target.closest('.lb-collage-piece'); if(piece){location.hash='#shop/'+piece.dataset.shop;} });
+document.addEventListener('click',e=>{ const piece=e.target.closest('.lb-collage-piece'); if(piece){location.hash='#shop/'+piece.dataset.shop;} });
 function syncMobileCount(){const a=document.getElementById('wishCount'),b=document.getElementById('mobileWishCount');if(a&&b)b.textContent=a.textContent||'0';}
 setInterval(syncMobileCount,500); syncMobileCount();
 </script>
@@ -7322,5 +7327,113 @@ setInterval(syncMobileCart,500);syncMobileCart();
 <script id="lb-gifts-js">
 function openGifts(){const g=document.getElementById('gifts');if(!g)return;g.classList.toggle('gifts-open');if(g.classList.contains('gifts-open'))g.scrollIntoView({behavior:'smooth',block:'start'});}
 </script>
+
+<style id="lb-user-final-v2">
+/* ===== FINAL USER REQUESTS ===== */
+/* Menu lives beside the Loop♡Bloom title on every screen size. */
+.lb-menu-trigger{
+  position:static!important;
+  flex:0 0 auto!important;
+  width:40px!important;height:40px!important;
+  margin:0 10px 0 0!important;
+  border:1px solid #c9dacb!important;border-radius:12px!important;
+  background:#fff!important;color:#456b50!important;
+  font-size:19px!important;line-height:1!important;
+  box-shadow:0 5px 14px rgba(69,107,80,.10)!important;
+  cursor:pointer!important;
+}
+nav{align-items:center!important;}
+@media(max-width:800px){
+  nav{justify-content:flex-start!important;padding:9px 12px!important;}
+  nav .logo{font-size:25px!important;}
+  .lb-menu-trigger{width:36px!important;height:36px!important;margin-right:8px!important;font-size:17px!important;border-radius:11px!important;}
+}
+
+/* Exactly 1cm visual circle on normal CSS reference sizing. */
+@media(max-width:800px){
+  .lb-mobile-cat{flex:0 0 48px!important;width:48px!important;min-width:48px!important;max-width:48px!important;font-size:8px!important;}
+  .lb-mobile-cat .lb-cat-circle,
+  .lb-cat-circle{width:1cm!important;height:1cm!important;min-width:1cm!important;max-width:1cm!important;min-height:1cm!important;max-height:1cm!important;padding:2px!important;border-radius:50%!important;}
+  .lb-mobile-cats{gap:9px!important;padding:8px 12px 12px!important;}
+}
+
+/* Bestsellers: no horizontal sliding; grid layout. */
+#bestsellers .best-grid{
+  display:grid!important;
+  grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  flex-wrap:initial!important;
+  overflow:visible!important;
+  scroll-snap-type:none!important;
+  scrollbar-width:auto!important;
+  width:min(1200px,calc(100% - 40px))!important;
+  gap:16px!important;
+  padding:0 2px 22px!important;
+}
+#bestsellers .best-card{flex:none!important;width:auto!important;scroll-snap-align:none!important;}
+@media(max-width:1100px){#bestsellers .best-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important;}}
+@media(max-width:800px){
+  #bestsellers .best-grid{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    width:calc(100% - 24px)!important;
+    gap:12px!important;
+    overflow:visible!important;
+    padding:4px 0 18px!important;
+  }
+  #bestsellers .best-card{width:auto!important;min-width:0!important;}
+}
+
+/* Reviews are visible. Only the writing form opens. */
+#reviews .review-grid{display:flex!important;}
+#reviews .review-form-wrap{display:none!important;}
+#reviews.review-writing .review-form-wrap{display:block!important;}
+#reviews .section-title{cursor:default!important;}
+#reviews .section-title::after{content:none!important;}
+.review-open-btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:10px;padding:9px 15px;border:1px solid #b9cdbb;
+  border-radius:999px;background:#f4faf5;color:#456b50;
+  font:700 12px/1 inherit;cursor:pointer;
+  box-shadow:0 5px 12px rgba(69,107,80,.08);
+}
+@media(max-width:800px){
+  #reviews .review-grid{overflow-x:auto!important;display:flex!important;gap:10px!important;padding-bottom:10px!important;}
+  #reviews .review-grid .review{flex:0 0 78vw!important;}
+  .review-open-btn{font-size:11px!important;padding:8px 13px!important;}
+}
+
+/* Gifts: make the closed state visibly clickable/popping. */
+#gifts .gifts-toggle{
+  position:relative!important;cursor:pointer!important;
+  padding:18px 16px 16px!important;
+  border:1px dashed #b8cdb9!important;border-radius:22px!important;
+  background:linear-gradient(135deg,#ffffff,#f2f8f3)!important;
+  box-shadow:0 10px 24px rgba(69,107,80,.10)!important;
+}
+#gifts .gifts-toggle .gifts-hint{
+  display:inline-block!important;margin-top:9px!important;
+  padding:7px 13px!important;border-radius:999px!important;
+  background:#456b50!important;color:#fff!important;
+  font-size:11px!important;font-weight:800!important;
+  letter-spacing:.03em!important;box-shadow:0 5px 12px rgba(69,107,80,.16)!important;
+}
+#gifts.gifts-open .gifts-toggle{background:#f7fbf7!important;}
+
+/* Bigger, richer collage: add extra pieces, including reliable keychain files. */
+.lb-collage-piece.p10{left:3%;top:30%;transform:rotate(-13deg);}
+.lb-collage-piece.p11{left:79%;top:29%;transform:rotate(12deg);}
+.lb-collage-piece.p12{left:7%;top:67%;transform:rotate(-5deg);}
+@media(max-width:800px){
+  .lb-collage{height:365px!important;}
+  #little-collage .lb-collage-piece{width:86px!important;height:86px!important;}
+  #little-collage .lb-collage-piece.p10{left:2%!important;top:30%!important;}
+  #little-collage .lb-collage-piece.p11{left:77%!important;top:28%!important;}
+  #little-collage .lb-collage-piece.p12{left:6%!important;top:70%!important;}
+}
+
+/* From yarn to you is intentionally removed from mobile only. */
+@media(max-width:800px){#how-made{display:none!important;}}
+</style>
+
 </body>
 </html>
