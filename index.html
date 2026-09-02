@@ -5060,6 +5060,8 @@ material:"Crochet yarn + stuffing"
 
 const categoryNames={
 
+    all:"Shop",
+
     bags:"Bags",
 
     keychains:"Keychains",
@@ -5364,8 +5366,8 @@ function renderShop(){
     let list =
         products.filter(
             p =>
-                p.category ===
-                currentCategory
+                (currentCategory === "all" || p.category ===
+                currentCategory)
         );
 
 
@@ -7495,3 +7497,151 @@ nav{align-items:center!important;}
 </script>
 </body>
 </html>
+<style id="lb-actual-final-shop-fix">
+/* ===== CLEAN SHOP / MYNTRA-LIKE CATEGORY HEADER ===== */
+#shop .lb-back-btn{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:6px!important;
+  margin:12px 5% 0!important;
+  padding:7px 10px!important;
+  border:1px solid #d3e1d4!important;
+  border-radius:10px!important;
+  background:#fff!important;
+  color:#456b50!important;
+  font-size:12px!important;
+  font-weight:700!important;
+}
+#shop .shop-head{
+  padding:8px 5% 10px!important;
+  min-height:0!important;
+  align-items:center!important;
+  gap:12px!important;
+}
+#shop .shop-head > div:first-child{
+  display:flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  min-width:0!important;
+}
+#shop #shopSticker{
+  display:none!important;
+}
+#shop .shop-head h1{
+  font-family:"Patrick Hand",cursive!important;
+  font-size:34px!important;
+  line-height:1!important;
+  margin:0!important;
+  font-weight:700!important;
+  color:#456b50!important;
+  text-transform:none!important;
+}
+#shop .sort-box{margin-left:auto!important;flex-shrink:0!important;}
+#shop .sort-label{font-size:10px!important;}
+#shop .sort{font-size:10px!important;padding:7px 8px!important;border-radius:9px!important;}
+#shop .shop-tools-final{margin:0 auto 12px!important;max-width:1150px!important;padding:0 5%!important;box-sizing:border-box!important;}
+#shop .filter-final{
+  display:flex!important;
+  gap:7px!important;
+  overflow-x:auto!important;
+  scrollbar-width:none!important;
+  padding:2px 0 4px!important;
+}
+#shop .filter-final::-webkit-scrollbar{display:none!important;}
+#shop .filter-final-btn{
+  flex:0 0 auto!important;
+  padding:7px 12px!important;
+  border:1px solid #d5e2d6!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:#55705a!important;
+  font-size:11px!important;
+  font-weight:700!important;
+  cursor:pointer!important;
+}
+#shop .filter-final-btn.active{background:#456b50!important;color:#fff!important;border-color:#456b50!important;}
+@media(max-width:700px){
+  #shop .lb-back-btn{margin:8px 10px 0!important;font-size:10px!important;}
+  #shop .shop-head{padding:5px 10px 8px!important;}
+  #shop .shop-head h1{font-size:28px!important;}
+  #shop .sort-label{display:none!important;}
+  #shop .sort{font-size:9px!important;max-width:100px!important;}
+  #shop .shop-tools-final{padding:0 10px!important;margin-bottom:8px!important;}
+  #shop .shop-search-final{padding:11px 14px!important;margin-bottom:8px!important;font-size:12px!important;}
+  #shop .filter-final-btn{font-size:10px!important;padding:6px 10px!important;}
+}
+
+/* ===== FIVE MOBILE CATEGORY CIRCLES: BIGGER BUT ALWAYS FIT ===== */
+@media(max-width:700px){
+  .lb-mobile-cats{gap:4px!important;padding:8px 5px 12px!important;overflow:hidden!important;justify-content:space-between!important;}
+  .lb-mobile-cat{font-size:9px!important;}
+  .lb-cat-circle{width:70px!important;height:70px!important;min-width:70px!important;max-width:70px!important;min-height:70px!important;max-height:70px!important;}
+}
+
+/* ===== CONNECT WITH US: BUTTON FIRST, THREE OPTIONS ONLY AFTER CLICK ===== */
+.social-board{display:none!important;}
+.social.social-open .social-board{display:grid!important;}
+.social-toggle{display:inline-flex!important;}
+</style>
+<script id="lb-actual-final-shop-js">
+(function(){
+  /* Never let the shop Back button leave the single-page site. */
+  window.goHomeFromShop=function(){
+    location.hash='#home';
+    window.scrollTo(0,0);
+  };
+  window.goBackSmart=function(){
+    if(location.hash && location.hash.toLowerCase().startsWith('#shop')){
+      window.goHomeFromShop();
+      return;
+    }
+    if(location.hash && location.hash!=='#home'){
+      location.hash='#home';
+      window.scrollTo(0,0);
+      return;
+    }
+    window.scrollTo(0,0);
+  };
+
+  function wireShopFilters(){
+    document.querySelectorAll('#shop .filter-final-btn').forEach(function(btn){
+      if(btn.dataset.lbWired==='1') return;
+      btn.dataset.lbWired='1';
+      btn.addEventListener('click',function(ev){
+        ev.preventDefault();
+        ev.stopImmediatePropagation();
+        var v=btn.dataset.filter;
+        if(v==='all'){
+          currentCategory='all';
+          document.querySelectorAll('.filter-final-btn').forEach(x=>x.classList.remove('active'));
+          btn.classList.add('active');
+          var list=products.slice();
+          var grid=document.getElementById('shopGrid');
+          if(grid) grid.innerHTML=list.map(productCard).join('');
+          var title=document.getElementById('shopTitle'); if(title) title.textContent='Shop';
+        }else{
+          location.hash='#shop/'+v;
+        }
+      },true);
+    });
+  }
+
+  /* Make category links below search behave like real shop tabs. */
+  function markActiveFilter(){
+    var v=(window.currentCategory||'all');
+    document.querySelectorAll('#shop .filter-final-btn').forEach(function(b){
+      b.classList.toggle('active',b.dataset.filter===v || (v==='all'&&b.dataset.filter==='all'));
+    });
+  }
+  var oldRender=window.renderShop;
+  if(oldRender){
+    window.renderShop=function(){
+      oldRender.apply(this,arguments);
+      markActiveFilter();
+      wireShopFilters();
+    };
+  }
+  document.addEventListener('DOMContentLoaded',function(){wireShopFilters();markActiveFilter();});
+  setTimeout(function(){wireShopFilters();markActiveFilter();},300);
+})();
+</script>
