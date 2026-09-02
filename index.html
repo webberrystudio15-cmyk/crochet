@@ -3814,6 +3814,14 @@ Loop<span>♡</span>Bloom
   <button onclick="showReviewsPanel()" aria-label="Notifications">♧</button>
   <button onclick="openDrawer('wishlist')" aria-label="Wishlist">♡<span id="mobileWishCount">0</span></button>
   <button onclick="openLogin()" aria-label="Account">♙</button>
+<!-- MOBILE QUICK CATEGORY CIRCLES -->
+<div class="lb-mobile-cats" aria-label="Quick categories">
+  <a class="lb-mobile-cat" href="#shop/bags"><span class="lb-cat-circle"><img src="image/bag2.jpg" alt="Bags"></span>Bags</a>
+  <a class="lb-mobile-cat" href="#shop/softtoys"><span class="lb-cat-circle"><img src="image/flower5.jpg" alt="Soft Toys"></span>Soft Toys</a>
+  <a class="lb-mobile-cat" href="#shop/tops"><span class="lb-cat-circle"><img src="image/top6.jpg" alt="Tops"></span>Tops</a>
+  <a class="lb-mobile-cat" href="#shop/toys"><span class="lb-cat-circle"><img src="image/toy4.jpg" alt="Toys"></span>Toys</a>
+  <a class="lb-mobile-cat" href="#shop/keychains"><span class="lb-cat-circle"><img src="image/key10.jpg" alt="Keychains"></span>Keychains</a>
+</div>
 </div>
 <!-- =========================================================
      HOME PAGE
@@ -3832,14 +3840,6 @@ our little crochet world
 <p>Cute handmade crochet pieces made to make you smile.</p>
 
 <a class="btn light" href="#collections">Shop the collection →</a><a class="btn light" href="#custom">Create your own ♡</a></div>
-</div>
-<!-- MOBILE QUICK CATEGORY CIRCLES -->
-<div class="lb-mobile-cats" aria-label="Quick categories">
-  <a class="lb-mobile-cat" href="#shop/bags"><span class="lb-cat-circle"><img src="image/bag1.jpg" alt="Bags"></span>Bags</a>
-  <a class="lb-mobile-cat" href="#shop/softtoys"><span class="lb-cat-circle"><img src="image/flower3.jpg" alt="Soft Toys"></span>Soft Toys</a>
-  <a class="lb-mobile-cat" href="#shop/tops"><span class="lb-cat-circle"><img src="image/top1.jpg" alt="Tops"></span>Tops</a>
-  <a class="lb-mobile-cat" href="#shop/toys"><span class="lb-cat-circle"><img src="image/toy1.jpg" alt="Toys"></span>Toys</a>
-  <a class="lb-mobile-cat" href="#shop/keychains"><span class="lb-cat-circle"><img src="image/key1.jpg" alt="Keychains"></span>Keychains</a>
 </div>
 <!-- FLOATING CUTE DETAILS -->
 <span class="lb-float lb-f1">♡</span><span class="lb-float lb-f2 spark">✦</span><span class="lb-float lb-f3">♡</span><span class="lb-float lb-f4 spark">✧</span><span class="lb-float lb-f5 spark">✦</span><span class="lb-float lb-f6">♡</span>
@@ -7181,6 +7181,40 @@ if (container) {
   .lb-extra-bow{position:absolute;width:38px;height:38px;opacity:.58}.lb-extra-bow.b1{left:1%;top:31%}.lb-extra-bow.b2{right:1%;top:48%}.lb-extra-bow.b3{left:2%;bottom:19%}.lb-extra-bow.b4{right:2%;bottom:28%}
   .lb-cute-dot{position:absolute;font-size:14px}
   #reviews .section-title{padding-bottom:8px}
+}
+
+/* ===== MOBILE REFINEMENT: CIRCLES + PRODUCT FOCUS ===== */
+@media(max-width:800px){
+  /* Quick categories sit directly under the mobile action icons */
+  .lb-mobile-cats{display:flex!important;gap:14px!important;overflow-x:auto!important;padding:10px 14px 15px!important;background:#fff!important;border:0!important;box-shadow:none!important;position:relative!important;z-index:20!important;}
+  .lb-mobile-cat{flex:0 0 72px!important;text-align:center!important;font-size:10px!important;font-weight:700!important;}
+  .lb-mobile-cat .lb-cat-circle{width:68px!important;height:68px!important;border-radius:50%!important;padding:3px!important;background:#f8fbf8!important;border:1.5px solid #b9cdbb!important;box-shadow:0 4px 12px rgba(69,107,80,.10)!important;}
+  .lb-mobile-cat img{width:100%!important;height:100%!important;border-radius:50%!important;object-fit:cover!important;display:block!important;}
+  .lb-mobile-cat .lb-cat-circle::after{border-radius:50%!important;}
+
+  /* Smaller section headings; bigger crochet product cards */
+  .section-title h2{font-size:34px!important;line-height:1.05!important;margin:5px 0 6px!important;}
+  .section-title p{font-size:11px!important;line-height:1.35!important;}
+  .section-title .pill{font-size:9px!important;padding:5px 9px!important;letter-spacing:.08em!important;}
+
+  #collections{padding-top:30px!important;padding-bottom:34px!important;}
+  #collections .collections{gap:16px!important;padding:8px 4px 20px!important;}
+  #collections .collection{flex:0 0 190px!important;min-height:250px!important;border-radius:22px!important;}
+  #collections .collection img{height:195px!important;min-height:195px!important;object-fit:cover!important;border-radius:18px!important;}
+  #collections .collection strong{font-size:17px!important;}
+  #collections .collection small{font-size:10px!important;}
+
+  #bestsellers{padding-top:30px!important;}
+  #bestsellers .best-grid{gap:14px!important;}
+  #bestsellers .best-card{flex:0 0 calc((100vw - 44px)/2)!important;}
+
+  #little-collage .lb-collage-piece{width:102px!important;height:102px!important;}
+}
+
+/* Subtle crochet/check texture on the brand header without ovals */
+@media(max-width:800px){
+  nav{background-color:#fff!important;background-image:linear-gradient(90deg,rgba(120,155,127,.045) 1px,transparent 1px),linear-gradient(rgba(120,155,127,.045) 1px,transparent 1px)!important;background-size:14px 14px!important;}
+  .lb-mobile-toolbar{background-image:linear-gradient(90deg,rgba(120,155,127,.035) 1px,transparent 1px),linear-gradient(rgba(120,155,127,.035) 1px,transparent 1px)!important;background-size:10px 10px!important;}
 }
 </style>
 
