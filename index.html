@@ -3802,35 +3802,19 @@ Loop<span>♡</span>Bloom
 </div>
 <div class="actions">
 <!-- LOGIN -->
-<button class="icon" onclick="openLogin()" title="Login">
-
-♙
-
-</button><span class="account-label">Account</span>
+<button class="icon unified-icon" onclick="openLogin()" title="Login">♙</button><span class="account-label">Account</span>
 <!-- WISHLIST -->
-<button class="icon" onclick="openDrawer('wishlist')" title="Wishlist">
-
-♡
-
-<span class="count" id="wishCount">
-
-0
-
-</span>
-</button>
+<button class="icon unified-icon" onclick="openDrawer('wishlist')" title="Wishlist">♡<span class="count" id="wishCount">0</span></button>
 <!-- BAG -->
-<button class="icon" onclick="openDrawer('cart')" title="Bag">
-
-🛍
-
-<span class="count" id="cartCount">
-
-0
-
-</span>
-</button>
+<button class="icon unified-icon" onclick="openDrawer('cart')" title="Bag">⌑<span class="count" id="cartCount">0</span></button>
 </div>
 </nav>
+<div class="lb-mobile-toolbar" aria-label="Quick actions">
+  <button onclick="focusShopSearch()" aria-label="Search">⌕</button>
+  <button onclick="showReviewsPanel()" aria-label="Notifications">♧</button>
+  <button onclick="openDrawer('wishlist')" aria-label="Wishlist">♡<span id="mobileWishCount">0</span></button>
+  <button onclick="openLogin()" aria-label="Account">♙</button>
+</div>
 <!-- =========================================================
      HOME PAGE
 ========================================================= -->
@@ -3956,7 +3940,27 @@ falling in love with ♡
 </div>
 <div class="best-grid" id="bestGrid">
 </div>
-</section><section class="extra-final section final-added" id="custom">
+</section>
+<section class="lb-collage-section section" id="little-collage">
+  <div class="section-title">
+    <span class="pill">little things ♡</span>
+    <h2>A little crochet world</h2>
+    <p>Tap the collage and watch the tiny pieces scatter ✦</p>
+  </div>
+  <div class="lb-collage" id="lbCollage">
+    <button class="lb-collage-piece p1" data-shop="bags"><img src="image/bag1.jpg" alt="Crochet bag"></button>
+    <button class="lb-collage-piece p2" data-shop="toys"><img src="image/toy1.jpg" alt="Crochet toy"></button>
+    <button class="lb-collage-piece p3" data-shop="keychains"><img src="image/key1.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p4" data-shop="tops"><img src="image/top1.jpg" alt="Crochet top"></button>
+    <button class="lb-collage-piece p5" data-shop="softtoys"><img src="image/flower3.jpg" alt="Soft toy"></button>
+    <button class="lb-collage-piece p6" data-shop="bags"><img src="image/bag2.jpg" alt="Crochet bag"></button>
+    <button class="lb-collage-piece p7" data-shop="toys"><img src="image/toy2.jpg" alt="Crochet toy"></button>
+    <button class="lb-collage-piece p8" data-shop="keychains"><img src="image/key2.jpg" alt="Crochet keychain"></button>
+    <button class="lb-collage-piece p9" data-shop="tops"><img src="image/top2.jpg" alt="Crochet top"></button>
+  </div>
+  <button class="btn lb-scatter-shop" type="button" onclick="scatterCollage()">Scatter &amp; shop ♡</button>
+</section>
+<section class="extra-final section final-added" id="custom">
 <div class="section-title"><span class="pill">make it yours ♡</span><h2>Made just for you ♡</h2><p>Have a little idea? We'll turn it into stitches.</p></div>
 <div class="custom-final-wrap">
 <div class="custom-step"><b>1. Choose what you want</b><div class="choice-row"><button class="choice active" type="button">Bag</button><button class="choice" type="button">Keychain</button><button class="choice" type="button">Toy</button><button class="choice" type="button">Top</button><button class="choice" type="button">Soft Toy</button></div></div>
@@ -7129,5 +7133,70 @@ if (container) {
 })();
 </script>
 
+
+<style id="loop-bloom-mobile-redesign">
+/* ===== CLEAN, COHESIVE ICONS ===== */
+.actions .icon.unified-icon{width:38px!important;height:38px!important;border-radius:50%!important;background:transparent!important;background-image:none!important;border:1px solid rgba(69,107,80,.25)!important;box-shadow:none!important;color:#456b50!important;font-size:20px!important;display:grid!important;place-items:center!important;position:relative!important;padding:0!important}
+.actions .icon.unified-icon:hover{background:#eef6ef!important;transform:translateY(-2px)!important;box-shadow:0 5px 14px rgba(69,107,80,.10)!important}
+.actions .count{position:absolute!important;right:-3px!important;top:-3px!important;min-width:16px!important;height:16px!important;padding:0 4px!important;border-radius:99px!important;background:#456b50!important;color:#fff!important;font-size:9px!important;line-height:16px!important;text-align:center!important;border:2px solid #fff!important}
+
+/* ===== MORE VISIBLE CROCHET DOODLES — outlines, no spin ===== */
+.lb-extra-bow{position:fixed;z-index:9;pointer-events:none;width:58px;height:58px;fill:none;stroke:#789b7f;stroke-width:2.3;opacity:.72;animation:lbBowFloat 5.5s ease-in-out infinite;filter:drop-shadow(0 3px 5px rgba(69,107,80,.10))}
+.lb-extra-bow.b1{left:4%;top:25%}.lb-extra-bow.b2{right:4%;top:53%;animation-delay:-1.8s}.lb-extra-bow.b3{left:6%;bottom:18%;animation-delay:-3.2s}.lb-extra-bow.b4{right:7%;bottom:30%;animation-delay:-4.1s}
+@keyframes lbBowFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-9px) scale(1.04)}}
+.lb-cute-dot{position:fixed;z-index:9;pointer-events:none;color:#789b7f;font-size:18px;opacity:.65;animation:lbDot 3.2s ease-in-out infinite}.lb-cute-dot.d1{left:14%;top:16%}.lb-cute-dot.d2{right:14%;top:32%;animation-delay:-1s}.lb-cute-dot.d3{left:11%;bottom:36%;animation-delay:-2s}.lb-cute-dot.d4{right:12%;bottom:16%;animation-delay:-.5s}
+@keyframes lbDot{50%{transform:translateY(-7px) scale(1.2);opacity:1}}
+
+/* ===== UNIQUE COLLAGE ===== */
+.lb-collage-section{background:linear-gradient(180deg,#fff,#f5faf6)!important;text-align:center}
+.lb-collage{width:min(760px,92vw);height:360px;margin:12px auto 18px;position:relative}
+.lb-collage-piece{position:absolute;width:145px;height:145px;padding:5px;background:#fff;border:1px solid #dbe7dc;border-radius:14px;box-shadow:0 10px 24px rgba(69,107,80,.10);cursor:pointer;transition:transform .65s cubic-bezier(.2,.8,.2,1),left .65s,top .65s,opacity .5s}
+.lb-collage-piece img{width:100%;height:100%;object-fit:cover;border-radius:10px;display:block}
+.lb-collage-piece:hover{transform:translateY(-8px) rotate(-3deg) scale(1.04)}
+.lb-collage-piece.p1{left:8%;top:18%;transform:rotate(-8deg)}.p2{left:25%;top:5%;transform:rotate(5deg)}.p3{left:43%;top:20%;transform:rotate(-4deg)}.p4{left:61%;top:7%;transform:rotate(8deg)}.p5{left:17%;top:53%;transform:rotate(6deg)}.p6{left:35%;top:48%;transform:rotate(-7deg)}.p7{left:53%;top:55%;transform:rotate(4deg)}.p8{left:70%;top:46%;transform:rotate(-6deg)}.p9{left:43%;top:66%;width:120px;height:120px;transform:rotate(10deg)}
+.lb-collage.scatter .p1{left:-3%;top:-10%;transform:rotate(-25deg) scale(.92)}.lb-collage.scatter .p2{left:20%;top:-18%;transform:rotate(24deg) scale(.9)}.lb-collage.scatter .p3{left:43%;top:-12%;transform:rotate(-18deg) scale(.88)}.lb-collage.scatter .p4{left:78%;top:-5%;transform:rotate(28deg) scale(.9)}.lb-collage.scatter .p5{left:-4%;top:66%;transform:rotate(24deg) scale(.9)}.lb-collage.scatter .p6{left:27%;top:42%;transform:rotate(-28deg) scale(.95)}.lb-collage.scatter .p7{left:58%;top:55%;transform:rotate(20deg) scale(.9)}.lb-collage.scatter .p8{left:84%;top:66%;transform:rotate(-25deg) scale(.9)}.lb-collage.scatter .p9{left:43%;top:82%;transform:rotate(30deg) scale(.82)}
+.lb-scatter-shop{margin-bottom:10px}
+
+/* ===== REVIEWS ARE A CHOICE, NOT A GIANT BLOCK ===== */
+#reviews .review-grid,#reviews .review-form-wrap{display:none!important}
+#reviews.is-open .review-grid{display:flex!important}
+#reviews.is-open .review-form-wrap{display:block!important}
+#reviews .section-title{cursor:pointer}
+#reviews .section-title::after{content:'Tap to open reviews ♡';display:block;margin-top:10px;font-size:11px;letter-spacing:.08em;color:#789b7f}
+#reviews.is-open .section-title::after{content:'Tap to close reviews';}
+
+/* ===== MOBILE HEADER ===== */
+.lb-mobile-toolbar{display:none}
+@media(max-width:800px){
+  .topbar{font-size:9px;padding:6px 8px;letter-spacing:.8px}
+  nav{padding:10px 14px!important;display:flex!important;justify-content:center!important}
+  nav .navlinks,nav .actions{display:none!important}
+  nav .logo{font-size:25px!important;background:transparent!important;padding:0!important}
+  .lb-mobile-toolbar{display:flex;position:relative;z-index:20;margin:0 12px 10px;padding:7px 10px;gap:8px;justify-content:space-between;background:#fff;border:1px solid #dbe7dc;border-radius:18px;box-shadow:0 7px 18px rgba(69,107,80,.08)}
+  .lb-mobile-toolbar button{position:relative;width:48px;height:38px;border:1px solid #dbe7dc;border-radius:12px;background:#f8fbf8;color:#456b50;font-size:22px;padding:0;box-shadow:none!important}
+  .lb-mobile-toolbar button span{position:absolute;right:2px;top:1px;background:#456b50;color:#fff;border-radius:99px;font-size:8px;min-width:14px;height:14px;line-height:14px}
+  #bestsellers .best-grid{display:flex!important;overflow-x:auto!important;scroll-snap-type:x mandatory!important;gap:12px!important;padding:4px 4px 20px!important;width:calc(100% - 20px)!important}
+  #bestsellers .best-card{flex:0 0 calc((100vw - 48px)/2)!important;scroll-snap-align:start!important}
+  .lb-collage{height:330px;width:94vw}.lb-collage-piece{width:96px;height:96px}.lb-collage-piece.p1{left:4%}.lb-collage-piece.p2{left:27%}.lb-collage-piece.p3{left:51%}.lb-collage-piece.p4{left:72%}.lb-collage-piece.p5{left:10%;top:52%}.lb-collage-piece.p6{left:31%;top:48%}.lb-collage-piece.p7{left:53%;top:55%}.lb-collage-piece.p8{left:73%;top:49%}.lb-collage-piece.p9{left:42%;top:68%;width:78px;height:78px}
+  .lb-extra-bow{position:absolute;width:38px;height:38px;opacity:.58}.lb-extra-bow.b1{left:1%;top:31%}.lb-extra-bow.b2{right:1%;top:48%}.lb-extra-bow.b3{left:2%;bottom:19%}.lb-extra-bow.b4{right:2%;bottom:28%}
+  .lb-cute-dot{position:absolute;font-size:14px}
+  #reviews .section-title{padding-bottom:8px}
+}
+</style>
+
+<!-- extra visible outline bows -->
+<svg class="lb-extra-bow b1" viewBox="0 0 100 100"><path d="M50 45C38 25 8 20 10 43C12 62 35 58 50 48C65 58 88 62 90 43C92 20 62 25 50 45M50 45C44 50 43 61 50 67C57 61 56 50 50 45M50 67L42 83M50 67L58 83"/></svg>
+<svg class="lb-extra-bow b2" viewBox="0 0 100 100"><path d="M50 45C38 25 8 20 10 43C12 62 35 58 50 48C65 58 88 62 90 43C92 20 62 25 50 45M50 45C44 50 43 61 50 67C57 61 56 50 50 45M50 67L42 83M50 67L58 83"/></svg>
+<svg class="lb-extra-bow b3" viewBox="0 0 100 100"><path d="M50 45C38 25 8 20 10 43C12 62 35 58 50 48C65 58 88 62 90 43C92 20 62 25 50 45M50 45C44 50 43 61 50 67C57 61 56 50 50 45M50 67L42 83M50 67L58 83"/></svg>
+<svg class="lb-extra-bow b4" viewBox="0 0 100 100"><path d="M50 45C38 25 8 20 10 43C12 62 35 58 50 48C65 58 88 62 90 43C92 20 62 25 50 45M50 45C44 50 43 61 50 67C57 61 56 50 50 45M50 67L42 83M50 67L58 83"/></svg>
+<span class="lb-cute-dot d1">✦</span><span class="lb-cute-dot d2">♡</span><span class="lb-cute-dot d3">✿</span><span class="lb-cute-dot d4">✧</span>
+<script id="lb-mobile-redesign-js">
+function focusShopSearch(){ location.hash='#shop'; setTimeout(()=>document.getElementById('shopSearch')?.focus(),180); }
+function showReviewsPanel(){ location.hash='#reviews'; setTimeout(()=>document.getElementById('reviews')?.classList.add('is-open'),80); }
+function scatterCollage(){ const c=document.getElementById('lbCollage'); if(!c)return; c.classList.toggle('scatter'); }
+document.addEventListener('click',e=>{ const r=e.target.closest('#reviews .section-title'); if(r){document.getElementById('reviews')?.classList.toggle('is-open');} const piece=e.target.closest('.lb-collage-piece'); if(piece){location.hash='#shop/'+piece.dataset.shop;} });
+function syncMobileCount(){const a=document.getElementById('wishCount'),b=document.getElementById('mobileWishCount');if(a&&b)b.textContent=a.textContent||'0';}
+setInterval(syncMobileCount,500); syncMobileCount();
+</script>
 </body>
 </html>
