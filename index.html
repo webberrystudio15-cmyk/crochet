@@ -3726,6 +3726,41 @@ nav{
 #gifts .section-title{cursor:pointer}.gifts-hint{display:block;margin-top:5px;font-size:10px;color:#789b7f;letter-spacing:.08em}
 @media(max-width:800px){#gifts .section-title h2{font-size:27px!important}#gifts .section-title{margin-bottom:4px!important}.gifts-hint{font-size:9px!important}.lb-menu-trigger{display:block}}
 </style>
+
+<style id="final-mobile-polish">
+@media (max-width:700px){
+  /* Tiny, truly round category bubbles */
+  .lb-mobile-cats{display:flex!important;flex-wrap:nowrap!important;gap:10px!important;overflow-x:auto!important;padding:8px 14px 12px!important;align-items:flex-start!important;}
+  .lb-mobile-cat{display:flex!important;flex:0 0 58px!important;width:58px!important;max-width:58px!important;min-width:58px!important;flex-direction:column!important;align-items:center!important;gap:5px!important;font-size:9px!important;line-height:1.05!important;text-align:center!important;}
+  .lb-cat-circle{display:block!important;width:48px!important;height:48px!important;min-width:48px!important;max-width:48px!important;min-height:48px!important;max-height:48px!important;aspect-ratio:1/1!important;border-radius:50%!important;overflow:hidden!important;flex:none!important;}
+  .lb-cat-circle img{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:50%!important;display:block!important;}
+  /* Lift hero copy upward */
+  .hero-content{transform:translateY(-48px)!important;}
+  .hero-content .pill{margin-bottom:4px!important;}
+  .hero h1{margin:14px 0!important;}
+  .hero p{margin-bottom:16px!important;}
+  /* Smaller From yarn to you section */
+  #how-made{padding:42px 5%!important;}
+  #how-made .section-title{margin-bottom:20px!important;}
+  #how-made .section-title h2{font-size:27px!important;margin:7px 0!important;}
+  #how-made .section-title .pill{font-size:9px!important;padding:4px 11px!important;}
+  #how-made .how-grid{gap:8px!important;}
+  #how-made .how-grid>div{padding:12px 9px!important;min-height:78px!important;}
+  #how-made .how-grid b{font-size:13px!important;}
+  #how-made .how-grid span{font-size:9px!important;}
+}
+</style>
+<script>
+(function(){
+  function placeHowMadeAfterStory(){
+    var how=document.getElementById('how-made');
+    var story=document.getElementById('about');
+    if(how && story && story.parentNode){ story.parentNode.insertBefore(how, story.nextSibling); }
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',placeHowMadeAfterStory);
+  else placeHowMadeAfterStory();
+})();
+</script>
 </head>
 <body>
 
