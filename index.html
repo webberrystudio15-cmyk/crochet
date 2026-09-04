@@ -7747,3 +7747,197 @@ img,video{filter:none!important}
   color:#fff!important;
 }
 </style>
+
+<style id="loop-bloom-pink-everything-final">
+/* =========================================================
+   LOOP♡BLOOM — PINK EVERYWHERE
+   No green / sage feeling left in any section or card.
+========================================================= */
+:root{
+  --pink-main:#d8799b!important;
+  --pink-deep:#b95d7e!important;
+  --pink-soft:#fff0f5!important;
+  --pink-pale:#fde1ea!important;
+  --pink-blush:#f8d1de!important;
+  --pink-line:#e5a5ba!important;
+}
+
+/* EVERY MAJOR SECTION */
+#collections,
+#bestsellers,
+#little-collage,
+#made-for-you,
+#custom,
+#how-made,
+#reviews,
+#gifts,
+#shop,
+.social,
+.newsletter-final{
+  background:#fff0f5!important;
+  background-color:#fff0f5!important;
+}
+
+/* BESTSELLERS — pink grid + pink cards */
+#bestsellers,
+#bestsellers .best-grid,
+#bestsellers .best-card,
+#bestsellers .bestseller-pattern{
+  background-color:#f9cfdd!important;
+  background-image:
+    linear-gradient(90deg,rgba(185,93,126,.13) 50%,transparent 50%),
+    linear-gradient(rgba(185,93,126,.13) 50%,transparent 50%)!important;
+  background-size:24px 24px!important;
+}
+#bestsellers .best-card{
+  border-color:#e2a0b6!important;
+  box-shadow:0 10px 25px rgba(185,93,126,.10)!important;
+}
+
+/* A LITTLE CROCHET WORLD / COLLAGE */
+#little-collage,
+#little-collage .collage-inner,
+#little-collage .collage-card{
+  background-color:#fff0f5!important;
+}
+#little-collage .collage-card{
+  border-color:#e3a4b9!important;
+}
+
+/* MADE JUST FOR YOU — remove greenish tint */
+#made-for-you,
+#made-for-you .made-card,
+#made-for-you .made-grid,
+.made-for-you,
+.made-for-you .made-card,
+.made-for-you .made-grid{
+  background-color:#fde1ea!important;
+  border-color:#e5a5ba!important;
+}
+
+/* HOW IT'S MADE — no green */
+#how-made,
+#how-made .how-grid,
+#how-made .how-grid>div{
+  background-color:#fff0f5!important;
+}
+#how-made .how-grid>div:nth-child(even),
+#how-made .how-grid>div:nth-child(odd){
+  background:#fde1ea!important;
+  border-color:#e5a5ba!important;
+}
+#how-made .how-grid:before{border-color:#d98ba6!important;}
+
+/* REVIEWS — pink backdrop AND pink review cards */
+#reviews,
+#reviews .review-grid,
+#reviews .review,
+#reviews .review-card,
+#reviews .review-form-wrap{
+  background:#fff0f5!important;
+}
+#reviews .review,
+#reviews .review-card{
+  border-color:#e5a5ba!important;
+  box-shadow:0 10px 26px rgba(185,93,126,.08)!important;
+}
+#reviews .review:nth-child(even){background:#fde1ea!important;}
+
+/* A LITTLE SOMETHING FOR SOMEONE / GIFTS */
+#gifts,
+#gifts .gift-final,
+#gifts .gift-final div,
+#gifts .center{
+  background:#fff0f5!important;
+}
+#gifts .gift-final div{
+  background:#fde1ea!important;
+  border-color:#e5a5ba!important;
+  box-shadow:0 10px 25px rgba(185,93,126,.08)!important;
+}
+#gifts .gift-final div:nth-child(even),
+#gifts .gift-final div:nth-child(2),
+#gifts .gift-final div:nth-child(4){background:#f9cfdd!important;}
+#gifts::before,#gifts::after{
+  background-color:#f8cbd9!important;
+  background-image:
+    linear-gradient(90deg,rgba(185,93,126,.12) 50%,transparent 50%),
+    linear-gradient(rgba(185,93,126,.12) 50%,transparent 50%)!important;
+}
+
+/* CONNECT WITH US — Instagram / Pinterest / WhatsApp */
+.social,
+.social-board,
+.social-item{
+  background:#fff0f5!important;
+}
+.social-item{
+  background:#fde1ea!important;
+  border-color:#e5a5ba!important;
+  box-shadow:0 8px 22px rgba(185,93,126,.08)!important;
+}
+.social-item:nth-child(3),
+.social-item:nth-child(2),
+.social-item:nth-child(1){background:#fde1ea!important;}
+.social-toggle{background:#b95d7e!important;color:#fff!important;border-color:#b95d7e!important;}
+
+/* SHOP / CATEGORY PAGES — bags, keychains, toys, tops, soft toys */
+#shop,
+#shop .shop-hero,
+#shop .shop-toolbar,
+#shop .shop-tools-final,
+#shop .filter-panel,
+#shop .product-grid,
+#shop .product-card{
+  background:#fff0f5!important;
+}
+#shop .product-card{
+  background:#fff!important;
+  border-color:#e5a5ba!important;
+}
+#shop .filter-final-btn,
+#shop .filter-chip,
+#shop .shop-filter-btn{
+  background:#fde1ea!important;
+  border-color:#e5a5ba!important;
+  color:#87445d!important;
+}
+#shop .filter-final-btn.active,
+#shop .filter-chip.active,
+#shop .shop-filter-btn.active{
+  background:#b95d7e!important;
+  color:#fff!important;
+}
+
+/* NEWSLETTER / OTHER GREEN-TINTED BOXES */
+.newsletter-final{
+  background:#fde1ea!important;
+  border-color:#e5a5ba!important;
+}
+
+/* Remove common green/sage backgrounds from generic cards */
+.section-soft,
+.card,
+.feature-card,
+.extra-feature,
+.trust-strip,
+.collection,
+.collection-card{
+  background-color:#fff0f5!important;
+}
+
+/* Pink borders + text accents everywhere */
+.collection,.collection-card,.product-card,.review,.review-card,
+.best-card,.social-item,.gift-final div,.custom-final-wrap,
+.newsletter-final,.shop-toolbar,.filter-panel{
+  border-color:#e5a5ba!important;
+}
+
+/* Pink checker/gingham everywhere */
+.pattern,.checkered,.gingham,.checker,.bestseller-pattern{
+  background-image:
+    linear-gradient(90deg,rgba(185,93,126,.11) 50%,transparent 50%),
+    linear-gradient(rgba(185,93,126,.11) 50%,transparent 50%)!important;
+  background-size:24px 24px!important;
+}
+</style>
